@@ -477,8 +477,7 @@ arvindkr40882@gmail.com</div>
                     <input type="tel" id="hrWhatsApp" placeholder="Enter HR WhatsApp number (with country code, e.g., 919876543210)" maxlength="15">
                 </div>
                 <div class="button-group">
-                    <button class="btn-primary whatsapp-btn" onclick="sendWhatsApp('regular')">Send on WhatsApp</button>
-                    <button class="btn-primary whatsapp-btn" onclick="sendWhatsApp('business')" style="background: #128C7E;">Send on WhatsApp Business</button>
+                    <button class="btn-primary whatsapp-btn" onclick="sendWhatsApp()">Send on WhatsApp</button>
                 </div>
                 <div class="notification" id="whatsappNotification"></div>
 
@@ -680,7 +679,7 @@ This will help me understand if it's a good mutual fit. Thanks!</div>
             }, 3000);
         }
 
-        function sendWhatsApp(appType) {
+        function sendWhatsApp() {
             const phoneNumber = document.getElementById('hrWhatsApp').value.trim();
 
             if (!phoneNumber) {
@@ -702,22 +701,15 @@ This will help me understand if it's a good mutual fit. Thanks!</div>
 
             let whatsappURL;
             if (isAndroid) {
-                // Use intent scheme for Android with specific package
-                if (appType === 'business') {
-                    // WhatsApp Business package
-                    whatsappURL = `intent://send?phone=${phoneNumber}&text=${message}#Intent;scheme=whatsapp;package=com.whatsapp.w4b;end`;
-                } else {
-                    // Regular WhatsApp package
-                    whatsappURL = `intent://send?phone=${phoneNumber}&text=${message}#Intent;scheme=whatsapp;package=com.whatsapp;end`;
-                }
+                // Use intent scheme for Android
+                whatsappURL = `intent://send?phone=${phoneNumber}&text=${message}#Intent;scheme=whatsapp;package=com.whatsapp;end`;
             } else {
-                // Use wa.me for iOS and desktop (both apps use same URL)
+                // Use wa.me for iOS and desktop
                 whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
             }
 
             window.location.href = whatsappURL;
-            const appName = appType === 'business' ? 'WhatsApp Business' : 'WhatsApp';
-            showNotification('whatsappNotification', `Opening ${appName}... ✓`, 'success');
+            showNotification('whatsappNotification', `Opening WhatsApp... ✓`, 'success');
         }
 
         // Clear notification on input change

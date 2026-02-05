@@ -414,11 +414,20 @@
 
         <!-- Email Template Tab -->
         <div class="tab-content active" id="email-tab">
+        <!-- Email Type Selection -->
+        <div class="section">
+            <div class="section-label">Select Email Type</div>
+            <div class="button-group">
+                <button class="btn-secondary" onclick="switchEmailType('initial')" id="initialEmailBtn" style="background: #667eea; color: white;">Initial Application</button>
+                <button class="btn-secondary" onclick="switchEmailType('followup')" id="followupEmailBtn">Follow-Up</button>
+            </div>
+        </div>
+
         <!-- Subject Section -->
         <div class="section">
             <div class="section-label">Email Subject</div>
             <div class="subject-box">
-                <div class="subject-text" id="subjectText">Java Developer Application - Arvind Kumar</div>
+                <div class="subject-text" id="subjectText">Application for Java Developer Position - Arvind Kumar</div>
                 <button class="btn-secondary" onclick="copyToClipboard('subjectText', 'subjectNotification')" style="min-width: 80px; flex: 0;">Copy</button>
             </div>
             <div class="notification" id="subjectNotification"></div>
@@ -427,27 +436,27 @@
         <!-- Message Section -->
         <div class="section">
             <div class="section-label">Email Message</div>
-            <div class="message-box" id="messageText">Hi Hiring Team,
+            <div class="message-box" id="messageText">Dear Hiring Manager,
 
-I hope you're doing well.
+I hope this email finds you well.
 
-I am interested in the Java Developer opportunity. I have 3+ years of hands-on experience in Core Java, Spring Boot, Microservices, REST APIs, SQL databases, AWS, Docker, and React JS.
+I am writing to express my strong interest in the Java Developer position at your organization. With over 3 years of professional experience in full-stack development, I have developed expertise in Core Java, Spring Boot, Microservices Architecture, RESTful APIs, SQL databases, AWS cloud services, Docker containerization, and React JS.
 
-Please find my resume below for your reference. Feel free to reach out if you need any additional information.
+I am an immediate joiner and available to start without any notice period.
+
+I have attached my resume for your review. I would welcome the opportunity to discuss how my technical skills and experience align with your team's requirements.
 
 Resume: https://drive.google.com/file/d/1M6RtGTuDGs8V5iOQ_GxGHRVKsHjO7AmO/view?usp=sharing
 
-Looking forward to hearing from you.
+Thank you for your time and consideration. I look forward to hearing from you.
 
---
 Best regards,
 Arvind Kumar
-+91-8789694039
-arvindkr40882@gmail.com</div>
+Mobile: +91-8789694039
+Email: arvindkr40882@gmail.com</div>
 
             <div class="button-group">
                 <button class="btn-primary" onclick="copyToClipboard('messageText', 'messageNotification')">Copy Message</button>
-                <button class="btn-secondary" onclick="copyBoth()">Copy Subject + Message</button>
             </div>
             <div class="notification" id="messageNotification"></div>
         </div>
@@ -493,37 +502,71 @@ arvindkr40882@gmail.com</div>
 
                 <div class="quick-reply-card">
                     <h4>Reply 1: Expressing Interest</h4>
-                    <div class="quick-reply-text" id="wa-reply1">Hi! Thank you for reaching out. I'm very interested in this opportunity. I have 3+ years of experience in Java development with Spring Boot, Microservices, and AWS. Here's my resume: https://drive.google.com/file/d/1M6RtGTuDGs8V5iOQ_GxGHRVKsHjO7AmO/view?usp=sharing
+                    <div class="quick-reply-text" id="wa-reply1">Dear Sir/Madam,
 
-Looking forward to discussing this further!</div>
+Thank you for reaching out regarding this opportunity. I am very interested in the position.
+
+I have 3+ years of professional experience in Java development, including Spring Boot, Microservices Architecture, and AWS cloud services. I am an immediate joiner with no notice period.
+
+Resume: https://drive.google.com/file/d/1M6RtGTuDGs8V5iOQ_GxGHRVKsHjO7AmO/view?usp=sharing
+
+I look forward to discussing this opportunity further.
+
+Best regards,
+Arvind Kumar</div>
                     <button class="btn-secondary" onclick="copyToClipboard('wa-reply1', 'wa-notif1')">Copy Reply</button>
                     <div class="notification" id="wa-notif1"></div>
                 </div>
 
                 <div class="quick-reply-card">
                     <h4>Reply 2: Availability Confirmation</h4>
-                    <div class="quick-reply-text" id="wa-reply2">Hi! Yes, I'm available for a discussion. I can connect anytime today or tomorrow. Please let me know what time works best for you. Thanks!</div>
+                    <div class="quick-reply-text" id="wa-reply2">Dear Sir/Madam,
+
+Thank you for your message. I am available for a discussion at your earliest convenience. I can connect today or tomorrow as per your schedule.
+
+Please let me know the preferred time and I will make myself available.
+
+Best regards,
+Arvind Kumar</div>
                     <button class="btn-secondary" onclick="copyToClipboard('wa-reply2', 'wa-notif2')">Copy Reply</button>
                     <div class="notification" id="wa-notif2"></div>
                 </div>
 
                 <div class="quick-reply-card">
                     <h4>Reply 3: Follow-up</h4>
-                    <div class="quick-reply-text" id="wa-reply3">Hi! I wanted to follow up on the opportunity we discussed. Please let me know if you need any additional information from my end. Looking forward to your response!</div>
+                    <div class="quick-reply-text" id="wa-reply3">Dear Sir/Madam,
+
+I hope this message finds you well. I wanted to follow up on our previous discussion regarding the opportunity at your organization.
+
+Please let me know if you require any additional information from my side. I remain very interested in this position.
+
+Thank you for your time and consideration.
+
+Best regards,
+Arvind Kumar</div>
                     <button class="btn-secondary" onclick="copyToClipboard('wa-reply3', 'wa-notif3')">Copy Reply</button>
                     <div class="notification" id="wa-notif3"></div>
                 </div>
 
                 <div class="quick-reply-card">
                     <h4>Reply 4: Sharing Details</h4>
-                    <div class="quick-reply-text" id="wa-reply4">Hi! Here are my details:
+                    <div class="quick-reply-text" id="wa-reply4">Dear Sir/Madam,
+
+Please find my professional details below:
+
 Name: Arvind Kumar
 Experience: 3+ years in Java Development
-Skills: Core Java, Spring Boot, Microservices, REST APIs, SQL, AWS, Docker, React JS
-Notice Period: Immediate/15 days
+Core Skills: Core Java, Spring Boot, Microservices, REST APIs, SQL, AWS, Docker, React JS
+Notice Period: Immediate Joiner
+Contact: +91-8789694039
+Email: arvindkr40882@gmail.com
+
 Resume: https://drive.google.com/file/d/1M6RtGTuDGs8V5iOQ_GxGHRVKsHjO7AmO/view?usp=sharing
 
-Feel free to reach out for any clarifications!</div>
+Please feel free to contact me for any additional information.
+
+Best regards,
+Arvind Kumar</div>
                     <button class="btn-secondary" onclick="copyToClipboard('wa-reply4', 'wa-notif4')">Copy Reply</button>
                     <div class="notification" id="wa-notif4"></div>
                 </div>
@@ -537,51 +580,109 @@ Feel free to reach out for any clarifications!</div>
 
                 <div class="quick-reply-card">
                     <h4>Reply 1: Initial Response</h4>
-                    <div class="quick-reply-text" id="ln-reply1">Hi [Name]! Thank you for connecting and sharing this opportunity. I'm definitely interested in learning more about the Java Developer role. I have 3+ years of experience working with Java, Spring Boot, Microservices, and cloud technologies. Would love to discuss this further!</div>
+                    <div class="quick-reply-text" id="ln-reply1">Dear [Name],
+
+Thank you for connecting and sharing this opportunity with me. I am very interested in learning more about the Java Developer role at your organization.
+
+I bring 3+ years of professional experience working with Java, Spring Boot, Microservices Architecture, and cloud technologies. I am an immediate joiner with no notice period.
+
+I would welcome the opportunity to discuss how my expertise aligns with your requirements.
+
+Best regards,
+Arvind Kumar</div>
                     <button class="btn-secondary linkedin-btn" onclick="copyToClipboard('ln-reply1', 'ln-notif1')">Copy Reply</button>
                     <div class="notification" id="ln-notif1"></div>
                 </div>
 
                 <div class="quick-reply-card">
                     <h4>Reply 2: Sharing Resume</h4>
-                    <div class="quick-reply-text" id="ln-reply2">Hi [Name]! Thanks for your message. Please find my resume here: https://drive.google.com/file/d/1M6RtGTuDGs8V5iOQ_GxGHRVKsHjO7AmO/view?usp=sharing
+                    <div class="quick-reply-text" id="ln-reply2">Dear [Name],
 
-I have strong experience in Java ecosystem including Spring Boot, Microservices architecture, REST APIs, and AWS. Happy to discuss how I can contribute to your team!</div>
+Thank you for your message. Please find my resume attached for your review:
+https://drive.google.com/file/d/1M6RtGTuDGs8V5iOQ_GxGHRVKsHjO7AmO/view?usp=sharing
+
+I have comprehensive experience in the Java ecosystem, including Spring Boot, Microservices architecture, RESTful APIs, and AWS cloud services. I am an immediate joiner and available to start without any notice period.
+
+I would be happy to discuss how my technical expertise can contribute to your team's success.
+
+Best regards,
+Arvind Kumar</div>
                     <button class="btn-secondary linkedin-btn" onclick="copyToClipboard('ln-reply2', 'ln-notif2')">Copy Reply</button>
                     <div class="notification" id="ln-notif2"></div>
                 </div>
 
                 <div class="quick-reply-card">
                     <h4>Reply 3: Interview Confirmation</h4>
-                    <div class="quick-reply-text" id="ln-reply3">Hi [Name]! Thank you for the interview opportunity. I'm available and looking forward to it. Please share the meeting details (date, time, and platform). I'll make sure to be prepared and on time. Thanks!</div>
+                    <div class="quick-reply-text" id="ln-reply3">Dear [Name],
+
+Thank you for considering my application and extending the interview opportunity. I am available and looking forward to our discussion.
+
+Please share the meeting details including:
+- Interview date and time
+- Platform (Zoom/Teams/Google Meet)
+- Any preparation requirements
+
+I will ensure to be well-prepared and punctual.
+
+Thank you once again for this opportunity.
+
+Best regards,
+Arvind Kumar</div>
                     <button class="btn-secondary linkedin-btn" onclick="copyToClipboard('ln-reply3', 'ln-notif3')">Copy Reply</button>
                     <div class="notification" id="ln-notif3"></div>
                 </div>
 
                 <div class="quick-reply-card">
                     <h4>Reply 4: Polite Follow-up</h4>
-                    <div class="quick-reply-text" id="ln-reply4">Hi [Name]! I hope you're doing well. I wanted to follow up on our previous conversation regarding the Java Developer position. I'm still very interested in this opportunity. Please let me know if there's any update or if you need any additional information from my side. Thanks!</div>
+                    <div class="quick-reply-text" id="ln-reply4">Dear [Name],
+
+I hope this message finds you well. I wanted to follow up on our previous conversation regarding the Java Developer position at your organization.
+
+I remain very interested in this opportunity and would appreciate any update on the application status. Please let me know if you require any additional information from my side.
+
+Thank you for your time and consideration.
+
+Best regards,
+Arvind Kumar</div>
                     <button class="btn-secondary linkedin-btn" onclick="copyToClipboard('ln-reply4', 'ln-notif4')">Copy Reply</button>
                     <div class="notification" id="ln-notif4"></div>
                 </div>
 
                 <div class="quick-reply-card">
                     <h4>Reply 5: Thank You Note</h4>
-                    <div class="quick-reply-text" id="ln-reply5">Hi [Name]! Thank you so much for taking the time to speak with me about the opportunity. I really enjoyed our conversation and learning more about the role and your company. I'm very excited about the possibility of contributing to your team. Looking forward to the next steps!</div>
+                    <div class="quick-reply-text" id="ln-reply5">Dear [Name],
+
+Thank you for taking the time to speak with me about this opportunity. I thoroughly enjoyed our conversation and learning more about the role and your organization.
+
+I am very enthusiastic about the possibility of contributing to your team and believe my skills align well with the position's requirements.
+
+I look forward to the next steps in the process.
+
+Best regards,
+Arvind Kumar</div>
                     <button class="btn-secondary linkedin-btn" onclick="copyToClipboard('ln-reply5', 'ln-notif5')">Copy Reply</button>
                     <div class="notification" id="ln-notif5"></div>
                 </div>
 
                 <div class="quick-reply-card">
                     <h4>Reply 6: Requesting More Details</h4>
-                    <div class="quick-reply-text" id="ln-reply6">Hi [Name]! Thank you for reaching out. This sounds interesting! Could you please share more details about the role, such as:
-- Job responsibilities
-- Required tech stack
-- Team size and structure
-- Work location/remote options
-- CTC range
+                    <div class="quick-reply-text" id="ln-reply6">Dear [Name],
 
-This will help me understand if it's a good mutual fit. Thanks!</div>
+Thank you for reaching out regarding this opportunity. I am interested in learning more about the position.
+
+Could you please share additional details about the role:
+- Key responsibilities and deliverables
+- Required technology stack
+- Team structure and size
+- Work location and remote work options
+- Compensation range
+
+This information will help me better understand the role and evaluate the mutual fit.
+
+Thank you for your time.
+
+Best regards,
+Arvind Kumar</div>
                     <button class="btn-secondary linkedin-btn" onclick="copyToClipboard('ln-reply6', 'ln-notif6')">Copy Reply</button>
                     <div class="notification" id="ln-notif6"></div>
                 </div>
@@ -606,6 +707,71 @@ This will help me understand if it's a good mutual fit. Thanks!</div>
             event.target.classList.add('active');
         }
 
+        function switchEmailType(type) {
+            const subjectText = document.getElementById('subjectText');
+            const messageText = document.getElementById('messageText');
+            const initialBtn = document.getElementById('initialEmailBtn');
+            const followupBtn = document.getElementById('followupEmailBtn');
+
+            if (type === 'initial') {
+                subjectText.textContent = 'Application for Java Developer Position - Arvind Kumar';
+                messageText.textContent = `Dear Hiring Manager,
+
+I hope this email finds you well.
+
+I am writing to express my strong interest in the Java Developer position at your organization. With over 3 years of professional experience in full-stack development, I have developed expertise in Core Java, Spring Boot, Microservices Architecture, RESTful APIs, SQL databases, AWS cloud services, Docker containerization, and React JS.
+
+I am an immediate joiner and available to start without any notice period.
+
+I have attached my resume for your review. I would welcome the opportunity to discuss how my technical skills and experience align with your team's requirements.
+
+Resume: https://drive.google.com/file/d/1M6RtGTuDGs8V5iOQ_GxGHRVKsHjO7AmO/view?usp=sharing
+
+Thank you for your time and consideration. I look forward to hearing from you.
+
+Best regards,
+Arvind Kumar
+Mobile: +91-8789694039
+Email: arvindkr40882@gmail.com`;
+
+                initialBtn.style.background = '#667eea';
+                initialBtn.style.color = 'white';
+                followupBtn.style.background = '#e0e7ff';
+                followupBtn.style.color = '#667eea';
+            } else {
+                subjectText.textContent = 'Follow-Up: Java Developer Position - Arvind Kumar';
+                messageText.textContent = `Dear Hiring Manager,
+
+I hope this email finds you well.
+
+I am writing to follow up on my application for the Java Developer position that I submitted on [Date]. I remain very interested in this opportunity and would appreciate any update on the status of my application.
+
+To reiterate, I bring over 3 years of professional experience in:
+• Core Java & Spring Boot Development
+• Microservices Architecture & RESTful APIs
+• SQL Databases & AWS Cloud Services
+• Docker Containerization & React JS
+
+I am an immediate joiner with no notice period and can begin contributing to your team right away.
+
+Resume: https://drive.google.com/file/d/1M6RtGTuDGs8V5iOQ_GxGHRVKsHjO7AmO/view?usp=sharing
+
+Please let me know if you require any additional information. I would be grateful for the opportunity to discuss my candidacy further.
+
+Thank you for your time and consideration.
+
+Best regards,
+Arvind Kumar
+Mobile: +91-8789694039
+Email: arvindkr40882@gmail.com`;
+
+                followupBtn.style.background = '#667eea';
+                followupBtn.style.color = 'white';
+                initialBtn.style.background = '#e0e7ff';
+                initialBtn.style.color = '#667eea';
+            }
+        }
+
         function copyToClipboard(elementId, notificationId) {
             const element = document.getElementById(elementId);
             const text = element.textContent;
@@ -621,24 +787,6 @@ This will help me understand if it's a good mutual fit. Thanks!</div>
                 document.execCommand('copy');
                 document.body.removeChild(textarea);
                 showNotification(notificationId, 'Copied to clipboard! ✓', 'success');
-            });
-        }
-
-        function copyBoth() {
-            const subject = document.getElementById('subjectText').textContent;
-            const message = document.getElementById('messageText').textContent;
-            const combined = `Subject: ${subject}\n\n${message}`;
-            
-            navigator.clipboard.writeText(combined).then(() => {
-                showNotification('messageNotification', 'Subject and message copied! ✓', 'success');
-            }).catch(() => {
-                const textarea = document.createElement('textarea');
-                textarea.value = combined;
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
-                showNotification('messageNotification', 'Subject and message copied! ✓', 'success');
             });
         }
 
@@ -692,7 +840,27 @@ This will help me understand if it's a good mutual fit. Thanks!</div>
                 return;
             }
 
-            const messageText = `Hi! I am interested in the Java Developer opportunity at your company.\n\nI have 3+ years of experience in Core Java, Spring Boot, Microservices, REST APIs, SQL databases, AWS, Docker, and React JS.\n\nPlease find my resume here:\nhttps://drive.google.com/file/d/1M6RtGTuDGs8V5iOQ_GxGHRVKsHjO7AmO/view?usp=sharing\n\nLooking forward to connecting with you!\n\nRegards,\nArvind Kumar\n+91-8789694039`;
+            const messageText = `Dear Hiring Manager,
+
+I am reaching out to express my interest in the Java Developer position at your organization.
+
+I bring 3+ years of professional experience in:
+• Core Java & Spring Boot
+• Microservices Architecture
+• RESTful APIs Development
+• SQL Databases & AWS Cloud
+• Docker & React JS
+
+I am an immediate joiner with no notice period.
+
+Resume: https://drive.google.com/file/d/1M6RtGTuDGs8V5iOQ_GxGHRVKsHjO7AmO/view?usp=sharing
+
+I would appreciate the opportunity to discuss how I can contribute to your team.
+
+Best regards,
+Arvind Kumar
++91-8789694039
+arvindkr40882@gmail.com`;
 
             const message = encodeURIComponent(messageText);
 

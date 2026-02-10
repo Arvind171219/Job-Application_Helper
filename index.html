@@ -414,20 +414,11 @@
 
         <!-- Email Template Tab -->
         <div class="tab-content active" id="email-tab">
-        <!-- Email Type Selection -->
-        <div class="section">
-            <div class="section-label">Select Email Type</div>
-            <div class="button-group">
-                <button class="btn-secondary" onclick="switchEmailType('initial')" id="initialEmailBtn" style="background: #667eea; color: white;">Initial Application</button>
-                <button class="btn-secondary" onclick="switchEmailType('followup')" id="followupEmailBtn">Follow-Up</button>
-            </div>
-        </div>
-
         <!-- Subject Section -->
         <div class="section">
             <div class="section-label">Email Subject</div>
             <div class="subject-box">
-                <div class="subject-text" id="subjectText">Application for Java Developer Position - Arvind Kumar</div>
+                <div class="subject-text" id="subjectText">Java Developer Application - Arvind Kumar</div>
                 <button class="btn-secondary" onclick="copyToClipboard('subjectText', 'subjectNotification')" style="min-width: 80px; flex: 0;">Copy</button>
             </div>
             <div class="notification" id="subjectNotification"></div>
@@ -436,24 +427,25 @@
         <!-- Message Section -->
         <div class="section">
             <div class="section-label">Email Message</div>
-            <div class="message-box" id="messageText">Dear Hiring Manager,
+            <div class="message-box" id="messageText">Hi,
 
-I hope this email finds you well.
+I came across the Java Developer opening at your company and wanted to reach out to express my interest.
 
-I am writing to express my strong interest in the Java Developer position at your organization. With over 3 years of professional experience in full-stack development, I have developed expertise in Core Java, Spring Boot, Microservices Architecture, RESTful APIs, SQL databases, AWS cloud services, Docker containerization, and React JS.
+I have over 3 years of experience working with Java and related technologies, including Spring Boot, Microservices, REST APIs, SQL, AWS, and Docker. I've also worked on frontend technologies like React JS, HTML, CSS, and JavaScript. I enjoy building scalable applications and working in collaborative environments.
 
-I am an immediate joiner and available to start without any notice period.
+I'm currently available to join immediately.
 
-I have attached my resume for your review. I would welcome the opportunity to discuss how my technical skills and experience align with your team's requirements.
+Here's the link to my resume for your reference:
+https://drive.google.com/file/d/1M6RtGTuDGs8V5iOQ_GxGHRVKsHjO7AmO/view?usp=sharing
 
-Resume: https://drive.google.com/file/d/1M6RtGTuDGs8V5iOQ_GxGHRVKsHjO7AmO/view?usp=sharing
+I'd be happy to connect and discuss how I can contribute to your team.
 
-Thank you for your time and consideration. I look forward to hearing from you.
+Looking forward to hearing from you.
 
 Best regards,
 Arvind Kumar
-Mobile: +91-8789694039
-Email: arvindkr40882@gmail.com</div>
++91-8789694039
+arvindkr40882@gmail.com</div>
 
             <div class="button-group">
                 <button class="btn-primary" onclick="copyToClipboard('messageText', 'messageNotification')">Copy Message</button>
@@ -504,7 +496,7 @@ Email: arvindkr40882@gmail.com</div>
                     <h4>Reply 1: Expressing Interest</h4>
                     <div class="quick-reply-text" id="wa-reply1">Hi, thanks for reaching out!
 
-I'm interested in this opportunity. I have 3+ years of experience in Java, Spring Boot, Microservices, and AWS. I'm an immediate joiner.
+I'm interested in this opportunity. I have 3+ years of experience in Java, Spring Boot, Microservices, AWS, HTML, CSS, and JavaScript. I'm an immediate joiner.
 
 Resume: https://drive.google.com/file/d/1M6RtGTuDGs8V5iOQ_GxGHRVKsHjO7AmO/view?usp=sharing
 
@@ -546,7 +538,7 @@ Arvind</div>
 
 Name: Arvind Kumar
 Experience: 3+ years in Java Development
-Skills: Java, Spring Boot, Microservices, REST APIs, SQL, AWS, Docker, React
+Skills: Java, Spring Boot, Microservices, REST APIs, SQL, AWS, Docker, React, HTML, CSS, JS
 Notice Period: Immediate Joiner
 Contact: +91-8789694039
 
@@ -573,7 +565,7 @@ Arvind</div>
 
 Thanks for connecting! I'm interested in the Java Developer role.
 
-I have 3+ years of experience with Java, Spring Boot, Microservices, and cloud tech. I'm an immediate joiner with no notice period.
+I have 3+ years of experience with Java, Spring Boot, Microservices, AWS, HTML, CSS, and JavaScript. I'm an immediate joiner.
 
 Would love to discuss how I can contribute.
 
@@ -590,7 +582,7 @@ Arvind</div>
 Thanks for your message. Here's my resume:
 https://drive.google.com/file/d/1M6RtGTuDGs8V5iOQ_GxGHRVKsHjO7AmO/view?usp=sharing
 
-I have good experience with Java, Spring Boot, Microservices, REST APIs, and AWS. I'm an immediate joiner ready to start anytime.
+I have good experience with Java, Spring Boot, Microservices, REST APIs, AWS, HTML, CSS, and JavaScript. I'm an immediate joiner.
 
 Happy to chat more about the role.
 
@@ -688,57 +680,6 @@ Arvind</div>
             event.target.classList.add('active');
         }
 
-        function switchEmailType(type) {
-            const subjectText = document.getElementById('subjectText');
-            const messageText = document.getElementById('messageText');
-            const initialBtn = document.getElementById('initialEmailBtn');
-            const followupBtn = document.getElementById('followupEmailBtn');
-
-            if (type === 'initial') {
-                subjectText.textContent = 'Application for Java Developer - Arvind Kumar';
-                messageText.textContent = `Hi,
-
-I'm interested in the Java Developer position at your company.
-
-I have 3+ years of experience in Java, Spring Boot, Microservices, REST APIs, SQL, AWS, Docker, and React JS. I'm an immediate joiner with no notice period.
-
-Resume: https://drive.google.com/file/d/1M6RtGTuDGs8V5iOQ_GxGHRVKsHjO7AmO/view?usp=sharing
-
-Happy to discuss further if this sounds like a good fit.
-
-Thanks,
-Arvind Kumar
-+91-8789694039
-arvindkr40882@gmail.com`;
-
-                initialBtn.style.background = '#667eea';
-                initialBtn.style.color = 'white';
-                followupBtn.style.background = '#e0e7ff';
-                followupBtn.style.color = '#667eea';
-            } else {
-                subjectText.textContent = 'Following up - Java Developer Application';
-                messageText.textContent = `Hi,
-
-I wanted to follow up on my application for the Java Developer position I sent on [Date]. Still very interested in this opportunity.
-
-Quick reminder - I have 3+ years of experience in Java, Spring Boot, Microservices, REST APIs, SQL, AWS, Docker, and React. I'm an immediate joiner ready to start anytime.
-
-Resume: https://drive.google.com/file/d/1M6RtGTuDGs8V5iOQ_GxGHRVKsHjO7AmO/view?usp=sharing
-
-Let me know if you need anything else from my side.
-
-Thanks,
-Arvind Kumar
-+91-8789694039
-arvindkr40882@gmail.com`;
-
-                followupBtn.style.background = '#667eea';
-                followupBtn.style.color = 'white';
-                initialBtn.style.background = '#e0e7ff';
-                initialBtn.style.color = '#667eea';
-            }
-        }
-
         function copyToClipboard(elementId, notificationId) {
             const element = document.getElementById(elementId);
             const text = element.textContent;
@@ -811,7 +752,7 @@ arvindkr40882@gmail.com`;
 
 I'm interested in the Java Developer position at your company.
 
-I have 3+ years of experience in Java, Spring Boot, Microservices, REST APIs, SQL, AWS, Docker, and React. I'm an immediate joiner with no notice period.
+I have 3+ years of experience in Java, Spring Boot, Microservices, REST APIs, SQL, AWS, Docker, React, HTML, CSS, and JavaScript. I'm an immediate joiner.
 
 Resume: https://drive.google.com/file/d/1M6RtGTuDGs8V5iOQ_GxGHRVKsHjO7AmO/view?usp=sharing
 

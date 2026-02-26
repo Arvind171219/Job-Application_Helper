@@ -3,63 +3,125 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Job Application Helper - Professional Templates</title>
+<title>Job Application Helper - Professional</title>
 
 <style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
 body {
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    padding: 20px;
-    margin: 0;
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    padding:20px;
 }
 
 .container {
-    max-width: 850px;
-    margin: auto;
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    max-width:900px;
+    margin:auto;
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 25px 60px rgba(0,0,0,0.3);
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 5px;
+.header {
+    text-align:center;
+    margin-bottom:25px;
 }
 
-.subtitle {
-    text-align: center;
-    color: #666;
-    margin-bottom: 25px;
+.header h1 {
+    font-size:26px;
 }
+
+.header p {
+    color:#666;
+    font-size:14px;
+}
+
+.tabs {
+    display:flex;
+    gap:10px;
+    border-bottom:2px solid #eee;
+    margin-bottom:25px;
+}
+
+.tab {
+    padding:12px 18px;
+    background:none;
+    border:none;
+    font-weight:600;
+    cursor:pointer;
+    border-bottom:3px solid transparent;
+}
+
+.tab.active {
+    border-bottom-color:#667eea;
+    color:#667eea;
+}
+
+.tab-content { display:none; }
+.tab-content.active { display:block; }
 
 .section-label {
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #667eea;
+    font-weight:600;
+    margin-bottom:8px;
+    color:#667eea;
 }
 
 .box {
-    background: #f5f7fa;
-    padding: 15px;
-    border-radius: 6px;
-    margin-bottom: 15px;
-    white-space: pre-wrap;
-    line-height: 1.7;
+    background:#f5f7fa;
+    padding:15px;
+    border-radius:8px;
+    margin-bottom:12px;
+    white-space:pre-wrap;
+    line-height:1.7;
+    font-size:14px;
 }
 
 button {
-    padding: 10px 16px;
-    border: none;
-    background: #667eea;
-    color: #fff;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-bottom: 15px;
+    padding:10px 16px;
+    border:none;
+    background:#667eea;
+    color:#fff;
+    border-radius:6px;
+    cursor:pointer;
+    margin-bottom:15px;
+    font-weight:600;
 }
 
 button:hover {
-    background: #5568d3;
+    background:#5568d3;
+}
+
+.input-group {
+    display:flex;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+input {
+    flex:1;
+    padding:10px;
+    border:2px solid #ddd;
+    border-radius:6px;
+}
+
+input:focus {
+    outline:none;
+    border-color:#667eea;
+}
+
+.info {
+    font-size:13px;
+    background:#e7f3ff;
+    padding:10px;
+    border-left:4px solid #667eea;
+    border-radius:6px;
+    margin-top:10px;
+}
+
+@media(max-width:600px){
+    .tabs{flex-direction:column;}
+    .input-group{flex-direction:column;}
 }
 </style>
 </head>
@@ -68,18 +130,28 @@ button:hover {
 
 <div class="container">
 
+<div class="header">
 <h1>🚀 Job Application Helper</h1>
-<p class="subtitle">Professional Email, WhatsApp & LinkedIn Templates</p>
+<p>Professional Email, WhatsApp & LinkedIn Templates</p>
+</div>
 
-<!-- EMAIL SECTION -->
-<div class="section-label">📧 Email Subject</div>
+<div class="tabs">
+<button class="tab active" onclick="switchTab(event,'email')">📧 Email</button>
+<button class="tab" onclick="switchTab(event,'whatsapp')">💬 WhatsApp</button>
+<button class="tab" onclick="switchTab(event,'linkedin')">🔗 LinkedIn</button>
+</div>
+
+<!-- EMAIL TAB -->
+<div id="email" class="tab-content active">
+
+<div class="section-label">Email Subject</div>
 <div class="box" id="subjectText">
 Application for Java Backend Developer | 3+ Years Experience | Arvind Kumar
 </div>
 <button onclick="copyText('subjectText')">Copy Subject</button>
 
-<div class="section-label">📧 Email Message</div>
-<div class="box" id="emailMessage">
+<div class="section-label">Email Message</div>
+<div class="box" id="emailText">
 Hi,
 
 I hope you're doing well.
@@ -100,13 +172,23 @@ Arvind Kumar
 +91-8789694039
 arvindkr40882@gmail.com
 </div>
-<button onclick="copyText('emailMessage')">Copy Email</button>
+<button onclick="copyText('emailText')">Copy Email</button>
 
-<hr>
+<div class="section-label">Send Email</div>
+<div class="input-group">
+<input type="email" id="hrEmail" placeholder="Enter HR email">
+<button onclick="sendEmail()">Send</button>
+</div>
 
-<!-- WHATSAPP SECTION -->
-<div class="section-label">💬 WhatsApp Message</div>
-<div class="box" id="whatsappMessage">
+<div class="info">Clicking send will open your default email client with pre-filled content.</div>
+
+</div>
+
+<!-- WHATSAPP TAB -->
+<div id="whatsapp" class="tab-content">
+
+<div class="section-label">WhatsApp Message</div>
+<div class="box" id="whatsappText">
 Hi,
 
 I’m interested in the Java Developer opportunity.
@@ -124,13 +206,21 @@ Thanks,
 Arvind Kumar
 +91-8789694039
 </div>
-<button onclick="copyText('whatsappMessage')">Copy WhatsApp</button>
+<button onclick="copyText('whatsappText')">Copy Message</button>
 
-<hr>
+<div class="section-label">Send via WhatsApp</div>
+<div class="input-group">
+<input type="tel" id="whatsappNumber" placeholder="Enter number with country code (e.g. 919876543210)">
+<button onclick="sendWhatsApp()">Send</button>
+</div>
 
-<!-- LINKEDIN SECTION -->
-<div class="section-label">🔗 LinkedIn Initial Reply</div>
-<div class="box" id="linkedinMessage">
+</div>
+
+<!-- LINKEDIN TAB -->
+<div id="linkedin" class="tab-content">
+
+<div class="section-label">LinkedIn Message</div>
+<div class="box" id="linkedinText">
 Hi [Name],
 
 Thank you for reaching out regarding the Java Developer role.
@@ -144,15 +234,44 @@ Looking forward to connecting.
 Thanks,
 Arvind
 </div>
-<button onclick="copyText('linkedinMessage')">Copy LinkedIn Reply</button>
+<button onclick="copyText('linkedinText')">Copy LinkedIn Reply</button>
+
+</div>
 
 </div>
 
 <script>
-function copyText(id) {
-    const text = document.getElementById(id).innerText;
+function switchTab(event,tabId){
+    document.querySelectorAll(".tab-content").forEach(t=>t.classList.remove("active"));
+    document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+    document.getElementById(tabId).classList.add("active");
+    event.target.classList.add("active");
+}
+
+function copyText(id){
+    const text=document.getElementById(id).innerText;
     navigator.clipboard.writeText(text);
     alert("Copied successfully!");
+}
+
+function sendEmail(){
+    const email=document.getElementById("hrEmail").value;
+    if(!email){alert("Enter email");return;}
+    const subject=encodeURIComponent(document.getElementById("subjectText").innerText);
+    const body=encodeURIComponent(document.getElementById("emailText").innerText);
+    window.location.href=`mailto:${email}?subject=${subject}&body=${body}`;
+}
+
+function sendWhatsApp(){
+    const number=document.getElementById("whatsappNumber").value;
+    if(!number){alert("Enter number with country code");return;}
+    const message=encodeURIComponent(document.getElementById("whatsappText").innerText);
+    const isAndroid=/Android/i.test(navigator.userAgent);
+    if(isAndroid){
+        window.location.href=`intent://send?phone=${number}&text=${message}#Intent;scheme=whatsapp;package=com.whatsapp;end`;
+    }else{
+        window.location.href=`https://wa.me/${number}?text=${message}`;
+    }
 }
 </script>
 

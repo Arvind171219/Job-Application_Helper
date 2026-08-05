@@ -102,7 +102,7 @@
             letter-spacing: 1px;
         }
 
-        .subject-box {
+        .copy-box {
             background: #f5f7fa;
             border-left: 4px solid #667eea;
             padding: 15px;
@@ -110,14 +110,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
-        .subject-text {
+        .copy-icon {
+            font-size: 20px;
+            margin-right: 12px;
+        }
+
+        .copy-text {
             flex: 1;
             color: #333;
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.4;
+            word-break: break-all;
+            padding-right: 10px;
         }
 
         .message-box {
@@ -206,7 +213,8 @@
         .notification {
             padding: 12px 15px;
             border-radius: 6px;
-            margin-top: 15px;
+            margin-top: 10px;
+            margin-bottom: 15px;
             text-align: center;
             font-size: 14px;
             display: none;
@@ -352,13 +360,13 @@
                 font-size: 15px;
             }
 
-            .subject-box {
+            .copy-box {
                 flex-direction: column;
                 gap: 10px;
                 align-items: stretch;
             }
 
-            .subject-box button {
+            .copy-box button {
                 min-width: auto !important;
                 flex: 1 !important;
             }
@@ -415,30 +423,31 @@
     <div class="container">
         <div class="header">
             <h1>🚀 Job Application Helper</h1>
-            <p>Email, WhatsApp & LinkedIn Templates</p>
+            <p>Email, WhatsApp, LinkedIn & Document Templates</p>
         </div>
 
         <!-- Tabs Navigation -->
         <div class="tabs">
-            <button class="tab active" onclick="switchTab('email')">📧 Email Template</button>
+            <button class="tab active" onclick="switchTab('email')">📧 Email</button>
             <button class="tab" onclick="switchTab('whatsapp')">💬 WhatsApp</button>
             <button class="tab" onclick="switchTab('linkedin')">🔗 LinkedIn</button>
+            <button class="tab" onclick="switchTab('coverletter')">📄 Cover Letter & Links</button>
         </div>
 
         <!-- Email Template Tab -->
         <div class="tab-content active" id="email-tab">
-        <div class="section">
-            <div class="section-label">Email Subject</div>
-            <div class="subject-box">
-                <div class="subject-text" id="subjectText">Java Developer Application – Arvind Kumar</div>
-                <button class="btn-secondary" onclick="copyToClipboard('subjectText', 'subjectNotification')" style="min-width: 80px; flex: 0;">Copy</button>
+            <div class="section">
+                <div class="section-label">Email Subject</div>
+                <div class="copy-box">
+                    <div class="copy-text" id="subjectText">Java Developer Application – Arvind Kumar</div>
+                    <button class="btn-secondary" onclick="copyToClipboard('subjectText', 'subjectNotification')" style="min-width: 80px; flex: 0;">Copy</button>
+                </div>
+                <div class="notification" id="subjectNotification"></div>
             </div>
-            <div class="notification" id="subjectNotification"></div>
-        </div>
 
-        <div class="section">
-            <div class="section-label">Email Message</div>
-            <div class="message-box" id="messageText">Hi,
+            <div class="section">
+                <div class="section-label">Email Message</div>
+                <div class="message-box" id="messageText">Hi,
 
 I saw the post about the Java Developer opening at your company and I'm sharing my resume for the same role.
 
@@ -454,26 +463,26 @@ Arvind Kumar
 +91-8789694039
 arvindkr40882@gmail.com</div>
 
-            <div class="button-group">
-                <button class="btn-primary" onclick="copyToClipboard('messageText', 'messageNotification')">Copy Message</button>
+                <div class="button-group">
+                    <button class="btn-primary" onclick="copyToClipboard('messageText', 'messageNotification')">Copy Message</button>
+                </div>
+                <div class="notification" id="messageNotification"></div>
             </div>
-            <div class="notification" id="messageNotification"></div>
-        </div>
 
-        <div class="divider">✉️</div>
+            <div class="divider">✉️</div>
 
-        <div class="email-section">
-            <div class="section-label">Send Email Automatically</div>
-            <div class="email-input-group">
-                <input type="email" id="hrEmail" placeholder="Enter HR email address..." required>
-                <button class="btn-primary" onclick="sendEmail()" style="flex: 0; min-width: 100px;">Send Email</button>
+            <div class="email-section">
+                <div class="section-label">Send Email Automatically</div>
+                <div class="email-input-group">
+                    <input type="email" id="hrEmail" placeholder="Enter HR email address..." required>
+                    <button class="btn-primary" onclick="sendEmail()" style="flex: 0; min-width: 100px;">Send Email</button>
+                </div>
+                <div class="notification" id="emailNotification"></div>
+
+                <div class="info-box">
+                    <strong>ℹ️ Note:</strong> Clicking "Send Email" will open your default email client (Gmail, Outlook, etc.) with the message pre-filled. You'll still need to review and click send.
+                </div>
             </div>
-            <div class="notification" id="emailNotification"></div>
-
-            <div class="info-box">
-                <strong>ℹ️ Note:</strong> Clicking "Send Email" will open your default email client (Gmail, Outlook, etc.) with the message pre-filled. You'll still need to review and click send.
-            </div>
-        </div>
         </div>
 
         <!-- WhatsApp Tab -->
@@ -481,7 +490,7 @@ arvindkr40882@gmail.com</div>
             <div class="section">
                 <div class="section-label">Send Resume via WhatsApp</div>
                 <div class="input-with-button">
-                    <input type="tel" id="hrWhatsApp" placeholder="Enter HR WhatsApp number (with country code, e.g., 919876543210)" maxlength="15">
+                    <input type="tel" id="hrWhatsApp" placeholder="Enter HR WhatsApp number (e.g., 919876543210)" maxlength="15">
                 </div>
                 <div class="button-group">
                     <button class="btn-primary whatsapp-btn" onclick="sendWhatsApp()">Send on WhatsApp</button>
@@ -517,32 +526,8 @@ Arvind</div>
                 </div>
 
                 <div class="quick-reply-card">
-                    <h4>Reply 2: Availability Confirmation</h4>
-                    <div class="quick-reply-text" id="wa-reply2">Hi, yes I'm available to talk.
-
-Today or tomorrow works for me. Just let me know the time.
-
-Thanks,
-Arvind</div>
-                    <button class="btn-secondary" onclick="copyToClipboard('wa-reply2', 'wa-notif2')">Copy Reply</button>
-                    <div class="notification" id="wa-notif2"></div>
-                </div>
-
-                <div class="quick-reply-card">
-                    <h4>Reply 3: Follow-up</h4>
-                    <div class="quick-reply-text" id="wa-reply3">Hi, just checking in on the role we talked about.
-
-Still interested and available. Let me know if you need anything from my side.
-
-Thanks,
-Arvind</div>
-                    <button class="btn-secondary" onclick="copyToClipboard('wa-reply3', 'wa-notif3')">Copy Reply</button>
-                    <div class="notification" id="wa-notif3"></div>
-                </div>
-
-                <div class="quick-reply-card">
-                    <h4>Reply 4: Sharing Details</h4>
-                    <div class="quick-reply-text" id="wa-reply4">Hi, sharing my details:
+                    <h4>Reply 2: Sharing Details</h4>
+                    <div class="quick-reply-text" id="wa-reply2">Hi, sharing my details:
 
 Name: Arvind Kumar
 Experience: 3.5+ years in Java Development
@@ -556,8 +541,8 @@ Let me know if you need anything else.
 
 Thanks,
 Arvind</div>
-                    <button class="btn-secondary" onclick="copyToClipboard('wa-reply4', 'wa-notif4')">Copy Reply</button>
-                    <div class="notification" id="wa-notif4"></div>
+                    <button class="btn-secondary" onclick="copyToClipboard('wa-reply2', 'wa-notif2')">Copy Reply</button>
+                    <div class="notification" id="wa-notif2"></div>
                 </div>
             </div>
         </div>
@@ -566,6 +551,13 @@ Arvind</div>
         <div class="tab-content" id="linkedin-tab">
             <div class="section">
                 <div class="section-label">Quick LinkedIn Replies</div>
+                
+                <div class="quick-reply-card">
+                    <h4>Connection Request Note</h4>
+                    <div class="quick-reply-text" id="ln-reply-conn">Hi [Name], I'm a Java Developer with 3.5+ years of experience in Java, Spring Boot, Microservices, and AWS. I'd love to connect and follow your work. Thanks, Arvind</div>
+                    <button class="btn-secondary linkedin-btn" onclick="copyToClipboard('ln-reply-conn', 'ln-notif-conn')">Copy Note</button>
+                    <div class="notification" id="ln-notif-conn"></div>
+                </div>
 
                 <div class="quick-reply-card">
                     <h4>Reply 1: Initial Response</h4>
@@ -604,22 +596,8 @@ Arvind</div>
                 </div>
 
                 <div class="quick-reply-card">
-                    <h4>Reply 3: Interview Confirmation</h4>
+                    <h4>Reply 3: Polite Follow-up</h4>
                     <div class="quick-reply-text" id="ln-reply3">Hi [Name],
-
-Thanks for the interview opportunity! I'm available and looking forward to it.
-
-Just need the date, time, and platform (Zoom/Teams/Meet). I'll be ready.
-
-Thanks,
-Arvind</div>
-                    <button class="btn-secondary linkedin-btn" onclick="copyToClipboard('ln-reply3', 'ln-notif3')">Copy Reply</button>
-                    <div class="notification" id="ln-notif3"></div>
-                </div>
-
-                <div class="quick-reply-card">
-                    <h4>Reply 4: Polite Follow-up</h4>
-                    <div class="quick-reply-text" id="ln-reply4">Hi [Name],
 
 Just following up on the Java Developer role. Still very interested!
 
@@ -627,37 +605,64 @@ Any updates? Let me know if you need anything else from me.
 
 Thanks,
 Arvind</div>
-                    <button class="btn-secondary linkedin-btn" onclick="copyToClipboard('ln-reply4', 'ln-notif4')">Copy Reply</button>
-                    <div class="notification" id="ln-notif4"></div>
+                    <button class="btn-secondary linkedin-btn" onclick="copyToClipboard('ln-reply3', 'ln-notif3')">Copy Reply</button>
+                    <div class="notification" id="ln-notif3"></div>
                 </div>
-
-                <div class="quick-reply-card">
-                    <h4>Reply 5: Thank You Note</h4>
-                    <div class="quick-reply-text" id="ln-reply5">Hi [Name],
-
-Thanks for taking the time to talk. It was really helpful to learn about the role and the team.
-
-I'm excited about this and think it could be a great fit. Looking forward to hearing back!
-
-Thanks,
-Arvind</div>
-                    <button class="btn-secondary linkedin-btn" onclick="copyToClipboard('ln-reply5', 'ln-notif5')">Copy Reply</button>
-                    <div class="notification" id="ln-notif5"></div>
+            </div>
+        </div>
+        
+        <!-- Cover Letter & Links Tab -->
+        <div class="tab-content" id="coverletter-tab">
+            <div class="section">
+                <div class="section-label">Important Links (1-Click Copy)</div>
+                
+                <!-- LinkedIn Link -->
+                <div class="copy-box">
+                    <div class="copy-icon">💼</div>
+                    <div class="copy-text" id="link-linkedin">https://www.linkedin.com/in/arvind-kumar-239a741a0/</div>
+                    <button class="btn-secondary" onclick="copyToClipboard('link-linkedin', 'notif-linkedin')" style="min-width: 80px; flex: 0;">Copy</button>
                 </div>
+                <div class="notification" id="notif-linkedin"></div>
 
-                <div class="quick-reply-card">
-                    <h4>Reply 6: Requesting More Details</h4>
-                    <div class="quick-reply-text" id="ln-reply6">Hi [Name],
-
-Thanks for reaching out! I'm interested. Could you share a bit more — like what the day-to-day looks like, the tech stack, team size, remote or onsite, and the salary range?
-
-That'll help me understand if it's a good fit from both sides.
-
-Thanks,
-Arvind</div>
-                    <button class="btn-secondary linkedin-btn" onclick="copyToClipboard('ln-reply6', 'ln-notif6')">Copy Reply</button>
-                    <div class="notification" id="ln-notif6"></div>
+                <!-- GitHub Link -->
+                <div class="copy-box">
+                    <div class="copy-icon">💻</div>
+                    <div class="copy-text" id="link-github">https://github.com/Arvind171219</div>
+                    <button class="btn-secondary" onclick="copyToClipboard('link-github', 'notif-github')" style="min-width: 80px; flex: 0;">Copy</button>
                 </div>
+                <div class="notification" id="notif-github"></div>
+
+                <!-- Resume Link -->
+                <div class="copy-box">
+                    <div class="copy-icon">📄</div>
+                    <div class="copy-text" id="link-resume">https://drive.google.com/file/d/1iOrPlj_c8kjkuY7Vqj-iWrqGf82XWd3F/view?usp=sharing</div>
+                    <button class="btn-secondary" onclick="copyToClipboard('link-resume', 'notif-resume')" style="min-width: 80px; flex: 0;">Copy</button>
+                </div>
+                <div class="notification" id="notif-resume"></div>
+            </div>
+            
+            <div class="divider">📄</div>
+
+            <div class="section">
+                <div class="section-label">Short Cover Letter</div>
+                <div class="message-box" id="coverLetterText">Dear Hiring Manager,
+
+I am writing to express my interest in the Java Developer position. With 3.5+ years of experience building scalable backend systems using Java, Spring Boot, Microservices, and AWS, along with frontend experience in React, I am confident I can bring immediate value to your team.
+
+I am an immediate joiner and ready to contribute from day one. Please find my resume here: 
+https://drive.google.com/file/d/1iOrPlj_c8kjkuY7Vqj-iWrqGf82XWd3F/view?usp=sharing
+
+I look forward to discussing how my skills align with your needs.
+
+Best regards,
+
+Arvind Kumar
++91-8789694039
+arvindkr40882@gmail.com</div>
+                <div class="button-group">
+                    <button class="btn-primary" onclick="copyToClipboard('coverLetterText', 'clNotification')">Copy Cover Letter</button>
+                </div>
+                <div class="notification" id="clNotification"></div>
             </div>
         </div>
     </div>
@@ -679,7 +684,7 @@ Arvind</div>
             const text = element.textContent;
 
             navigator.clipboard.writeText(text).then(() => {
-                showNotification(notificationId, 'Copied to clipboard! ✓', 'success');
+                showNotification(notificationId, 'Copied! ✓', 'success');
             }).catch(() => {
                 const textarea = document.createElement('textarea');
                 textarea.value = text;
@@ -687,7 +692,7 @@ Arvind</div>
                 textarea.select();
                 document.execCommand('copy');
                 document.body.removeChild(textarea);
-                showNotification(notificationId, 'Copied to clipboard! ✓', 'success');
+                showNotification(notificationId, 'Copied! ✓', 'success');
             });
         }
 
@@ -722,7 +727,7 @@ Arvind</div>
             
             setTimeout(() => {
                 notification.className = 'notification';
-            }, 3000);
+            }, 2500);
         }
 
         function sendWhatsApp() {
